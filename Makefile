@@ -1,4 +1,4 @@
-PACKAGE_NAME = asp
+PACKAGE_NAME = asp32
 
 VERSION = v2
 VDEVEL = $(shell test -d .git && git describe --dirty 2>/dev/null)
@@ -10,10 +10,10 @@ endif
 PREFIX = /usr/local
 
 BINPROGS = \
-	asp
+	asp32
 
 MANPAGES = \
-	man/asp.1
+	man/asp32.1
 
 BASH_COMPLETION = \
 	shell/bash-completion
@@ -55,8 +55,8 @@ install: all
 	install -dm755 $(DESTDIR)$(PREFIX)/bin $(DESTDIR)$(PREFIX)/share/man/man1
 	install -m755 $(BINPROGS) $(DESTDIR)$(PREFIX)/bin
 	install -m644 $(MANPAGES) $(DESTDIR)$(PREFIX)/share/man/man1
-	install -Dm644 $(BASH_COMPLETION) $(DESTDIR)$(PREFIX)/share/bash-completion/completions/asp
-	install -Dm644 $(ZSH_COMPLETION) $(DESTDIR)$(PREFIX)/share/zsh/site-functions/_asp
+	install -Dm644 $(BASH_COMPLETION) $(DESTDIR)$(PREFIX)/share/bash-completion/completions/asp32
+	install -Dm644 $(ZSH_COMPLETION) $(DESTDIR)$(PREFIX)/share/zsh/site-functions/_asp32
 
 dist:
 	git archive --format=tar --prefix=$(PACKAGE_NAME)-$(VERSION)/ $(VERSION) | gzip -9 > $(PACKAGE_NAME)-$(VERSION).tar.gz

@@ -1,23 +1,27 @@
 /////
 vim:set ts=4 sw=4 syntax=asciidoc noet:
 /////
-asp(1)
-======
+asp32(1)
+========
 
 Name
 ----
-asp - Manage Arch Linux build sources
+asp32 - Manage Arch Linux 32 build sources
 
 Synopsis
 --------
-asp [options] command [targets...]
+asp32 [options] command [targets...]
 
 Description
 -----------
+The original script can be found at https://github.com/falconindy/asp.
+This is a fork for the specific needs of the Archlinux32 project
+(https://www.archlinux32.org).
+
 Manage the version-controlled sources for the build scripts used to create Arch
-Linux packages. This program provides a thin wrapper over the svntogit
-repositories hosted at https://git.archlinux.org. It aims to provide a
-replacement for abs which favors a sparse checkout.
+Linux 32 packages. This program provides a thin wrapper over the svntogit
+repositories hosted at https://git.archlinux.org and https://github.com/archlinux32/packages.
+It aims to provide a replacement for abs which favors a sparse checkout.
 
 Commands
 --------
@@ -27,7 +31,7 @@ The following commands are understood:
 	Create a new git repository containing the full source and history
 	for each of the given targets. The new repository will pull from the
 	repository in '$ASPROOT' and must be updated separately after using
-	'asp update'. If a checkout occurs on the same filesystem as '$ASPROOT',
+	'asp32 update'. If a checkout occurs on the same filesystem as '$ASPROOT',
 	most of the metadata can be hard linked, making this a relatively cheap
 	copy.
 
@@ -112,7 +116,7 @@ Environment
 -----------
 *ASPROOT*::
 	Determines where the metadata is stored for locally tracked packages. Defaults
-	to '`${XDG_CACHE_HOME:-$HOME/.cache}/asp`'.
+	to '`${XDG_CACHE_HOME:-$HOME/.cache}/asp32`'.
 
 *ASPCACHE*::
 	Determines where cached data is stored. Defaults to '$ASPROOT/cache'. Data in
@@ -121,3 +125,7 @@ Environment
 Authors
 -------
 Dave Reisner <d@falconindy.com>
+
+Motifications for Archlinux32
+-----------------------------
+Andreas Baumann <mail@andreasbaumann.cc>
