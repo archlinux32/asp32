@@ -1,3 +1,7 @@
+# asp32
+
+asp32 is a fork of `asp` to work with the Archlinux32 packages.
+
 # asp
 
 `asp` is a tool to manage the build source files used to create Arch Linux
