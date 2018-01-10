@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ASP_VERSION=@ASP_VERSION@
-ARCH_GIT_REPOS=(packages community)
+ARCH_GIT_REPOS=(packages64 community64 packages32)
 
 OPT_ARCH=$(uname -m)
 OPT_FORCE=0
@@ -143,7 +143,11 @@ initialize() {
 
   git init -q || return 1
   for remote in "${ARCH_GIT_REPOS[@]}"; do
-    git remote add "$remote" "https://git.archlinux.org/svntogit/$remote.git"
+    if [[ "${remote}" = *64 ]]; then
+      git remote add "$remote" "https://git.archlinux.org/svntogit/${remote%64}.git"
+    elif [[ "${remote}" = *32 ]]; then
+      git remote add "$remote" "https://github.com/archlinux32/${remote%32}.git"
+    fi
   done
 
   touch .asp
@@ -304,7 +308,11 @@ action__set-git-protocol() {
   esac
 
   for remote in "${ARCH_GIT_REPOS[@]}"; do
-    git remote set-url "$remote" "$1://git.archlinux.org/svntogit/$remote.git"
+    if [[ "${remote}" = *64 ]]; then
+      git remote set-url "$remote" "$1://git.archlinux.org/svntogit/${remote%64}.git"
+    elif [[ "${remote}" = *32 ]]; then
+      git remote set-url "$remote" "$1://github.com/archlinux32/${remote%32}.git"
+    fi
   done
 }
 
