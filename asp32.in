@@ -146,7 +146,7 @@ initialize() {
     if [[ "${remote}" = *64 ]]; then
       git remote add "$remote" "https://git.archlinux.org/svntogit/${remote%64}.git"
     elif [[ "${remote}" = *32 ]]; then
-      git remote add "$remote" "https://github.com/archlinux32/${remote%32}.git"
+      git remote add "$remote" "https://git.archlinux32.org/archlinux32/${remote%32}.git"
     fi
   done
 
@@ -311,7 +311,7 @@ action__set-git-protocol() {
     if [[ "${remote}" = *64 ]]; then
       git remote set-url "$remote" "$1://git.archlinux.org/svntogit/${remote%64}.git"
     elif [[ "${remote}" = *32 ]]; then
-      git remote set-url "$remote" "$1://github.com/archlinux32/${remote%32}.git"
+      git remote set-url "$remote" "$1://git.archlinux32.org/archlinux32/${remote%32}.git"
     fi
   done
 }

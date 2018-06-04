@@ -20,7 +20,7 @@ This is a fork for the specific needs of the Archlinux32 project
 
 Manage the version-controlled sources for the build scripts used to create Arch
 Linux 32 packages. This program provides a thin wrapper over the svntogit
-repositories hosted at https://git.archlinux.org and https://github.com/archlinux32/packages.
+repositories hosted at https://git.archlinux.org and https://git.archlinux32.org/archlinux32/packages.
 It aims to provide a replacement for abs which favors a sparse checkout.
 
 Commands
