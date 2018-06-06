@@ -1,6 +1,7 @@
 # asp32
 
 asp32 is a fork of `asp` to work with the Archlinux32 packages.
+It is currently hosted on https://git.archlinux32.org/archlinux32/asp32.
 The original for Archlinux can be found at https://github.com/falconindy/asp.
 
 `asp32` is a tool to manage the build source files used to create Arch Linux
